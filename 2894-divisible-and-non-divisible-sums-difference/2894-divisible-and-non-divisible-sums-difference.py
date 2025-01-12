@@ -1,15 +1,17 @@
 class Solution(object):
     def differenceOfSums(self, n, m):
-        num1 = []
-        num2 = []
-        for i in range(1,n+1):
-            if i % m != 0:
-                num1.append(i)
-            if i % m ==0:
-                num2.append(i)
+        total_sum = n * (n + 1) // 2
 
-        kim = sum(num1)
-        sim = sum(num2)
 
-        return(kim-sim)
+        count_multiples = n // m
+
+
+        sum_multiples = m * (count_multiples * (count_multiples + 1)) // 2
+
+
+        sum_not_multiples = total_sum - sum_multiples
+
+
+        result = sum_not_multiples - sum_multiples
+        return(result)
         
