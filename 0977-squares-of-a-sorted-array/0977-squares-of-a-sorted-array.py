@@ -1,8 +1,16 @@
 class Solution(object):
     def sortedSquares(self, nums):
-        arr = []
-        for i in nums:
-            arr.append(i**2)
+        i,j = 0,len(nums)-1
 
-        return(sorted(arr))
-        
+        while i <= j:
+            if nums[i]**2 < nums[j]**2:
+                nums[i]=nums[i]**2
+                i+=1
+            else:
+                nums[j]=nums[j]**2
+                j-=1
+
+        return sorted(nums)
+
+
+            
