@@ -1,15 +1,13 @@
 class Solution(object):
     def numRescueBoats(self, people, limit):
-        cout = 0
         people.sort()
-        i,j = 0,len(people)-1
-        while i<=j:
-            if people[i]+people[j]<= limit:
-                cout+=1
-                j-=1
-                i+=1
-            elif people[i]+people[j]> limit:
-                cout+=1
-                j-=1
-        return(cout)
-        
+        i, j = 0, len(people) - 1
+        count = 0
+
+        while i <= j:
+            if people[i] + people[j] <= limit:
+                i += 1
+            j -= 1
+            count += 1
+
+        return(count)
