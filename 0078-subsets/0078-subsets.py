@@ -1,17 +1,16 @@
 class Solution(object):
     def subsets(self, nums):
         n = len(nums)
-        nums.sort()
         res = []
         def helper(ind,ds):
-            if ind <= n:
+            if ind == n:
                 res.append(ds[:])
-            for i in range(ind,n):
-                # if nums[i] == nums[i-1]:
-                #     continue
-                ds.append(nums[i])
-                helper(i+1,ds)
-                ds.pop()
+                return
+            # for i in range(ind,n):
+            ds.append(nums[ind])
+            helper(ind+1,ds)
+            ds.pop()
+            helper(ind+1,ds)
         helper(0,[])
         return res
         # subsequences = []
