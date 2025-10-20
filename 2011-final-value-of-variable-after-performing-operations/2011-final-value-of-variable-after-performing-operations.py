@@ -1,11 +1,4 @@
 class Solution(object):
     def finalValueAfterOperations(self, operations):
-        count = 0
-        for i in operations:
-            if i == "--X" or i == "X--" :
-                count -=1
-
-            if i == "X++" or i == "++X" :
-                count += 1
-        return(count)
+        return(sum(1 if op in ["++X", "X++"] else -1 for op in operations) )
         
